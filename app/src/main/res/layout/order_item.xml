@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/order_holder"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/order_date"
+            style="@style/OrderItemStyle"
+            android:textSize="10sp"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
+            android:id="@+id/order_number"
+            style="@style/OrderItemStyle"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_alignParentRight="true"
+            android:id="@+id/order_state"
+            style="@style/OrderItemStyle"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"/>
+    </RelativeLayout>
+
+    <View
+        android:background="@color/common_gray"
+        android:layout_below="@id/order_holder"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+</RelativeLayout>

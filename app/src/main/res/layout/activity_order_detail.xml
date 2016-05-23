@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <android.support.v7.widget.Toolbar
+            android:elevation="4dp"
+            android:background="@color/colorPrimary"
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"/>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/OrderInfoStyle"
+                    android:text="@string/order_date_item"/>
+
+                <TextView
+                    android:id="@+id/date"
+                    style="@style/OrderInfoStyle"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/OrderInfoStyle"
+                    android:text="@string/order_number_item"/>
+
+                <TextView
+                    android:id="@+id/order_number"
+                    style="@style/OrderInfoStyle"/>
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/OrderInfoStyle"
+                    android:text="@string/order_type_item"/>
+
+                <TextView
+                    android:id="@+id/type"
+                    style="@style/OrderInfoStyle"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/OrderInfoStyle"
+                    android:text="@string/order_voltage_item"/>
+
+                <TextView
+                    android:id="@+id/voltage"
+                    style="@style/OrderInfoStyle"/>
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/OrderInfoStyle"
+                    android:text="@string/order_size_item"/>
+
+                <TextView
+                    android:id="@+id/size"
+                    style="@style/OrderInfoStyle"/>
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/OrderInfoStyle"
+                    android:text="@string/order_amount_item"/>
+
+                <TextView
+                    android:id="@+id/amount"
+                    style="@style/OrderInfoStyle"/>
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/OrderInfoStyle"
+                    android:text="@string/order_state_item"/>
+
+                <TextView
+                    android:id="@+id/state"
+                    style="@style/OrderInfoStyle"/>
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/OrderInfoStyle"
+                    android:text="@string/order_note_item"/>
+
+                <TextView
+                    android:id="@+id/note"
+                    style="@style/OrderInfoStyle"/>
+            </TableRow>
+        </TableLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/state_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:background="@color/common_white"
+        android:id="@+id/loading_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </FrameLayout>
+
+</RelativeLayout>
