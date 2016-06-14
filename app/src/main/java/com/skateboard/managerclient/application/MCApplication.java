@@ -2,6 +2,8 @@ package com.skateboard.managerclient.application;
 
 
 import android.app.Application;
+
+import com.skateboard.managerclient.K;
 import com.skateboard.managerclient.network.base.CVolley;
 import com.skateboard.managerclient.xiaomi.XiaoMiPushManager;
 

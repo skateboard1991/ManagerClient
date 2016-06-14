@@ -5,118 +5,14 @@
               android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
-        android:elevation="4dp"
-        android:background="?attr/colorPrimary"
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"/>
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"/>
 
-    <ScrollView
+    <FrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_marginTop="5dp"
-                android:background="@color/common_white"
-                android:id="@+id/order_number_input"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:background="@null"
-                    android:inputType="number"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"/>
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_marginTop="5dp"
-                android:background="@color/common_white"
-                android:id="@+id/type_input"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:background="@null"
-                    android:inputType="text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"/>
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_marginTop="5dp"
-                android:background="@color/common_white"
-                android:id="@+id/voltage_input"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:background="@null"
-                    android:inputType="number"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"/>
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_marginTop="5dp"
-                android:background="@color/common_white"
-                android:id="@+id/size_input"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:background="@null"
-                    android:inputType="text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"/>
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_marginTop="5dp"
-                android:background="@color/common_white"
-                android:id="@+id/amount_input"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:background="@null"
-                    android:inputType="number"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"/>
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_marginTop="5dp"
-                android:background="@color/common_white"
-                android:id="@+id/note_input"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:background="@null"
-                    android:inputType="text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"/>
-            </android.support.design.widget.TextInputLayout>
-
-            <Button
-                android:id="@+id/confirm"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/confirm"/>
-        </LinearLayout>
-    </ScrollView>
+        android:layout_height="match_parent"/>
 </LinearLayout>

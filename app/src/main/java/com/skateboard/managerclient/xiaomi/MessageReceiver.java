@@ -46,4 +46,11 @@ public class MessageReceiver extends PushMessageReceiver
         super.onCommandResult(context, miPushCommandMessage);
         XiaoMiPushManager.onCommandResult(context,miPushCommandMessage);
     }
+
+    @Override
+    public void onReceiveMessage(Context context, MiPushMessage miPushMessage)
+    {
+        super.onReceiveMessage(context, miPushMessage);
+        XiaoMiPushManager.onReceiveMessage(context,miPushMessage);
+    }
 }

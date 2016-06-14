@@ -23,6 +23,7 @@ import com.skateboard.managerclient.bean.Orders;
 import com.skateboard.managerclient.network.base.BaseListener;
 import com.skateboard.managerclient.network.base.RequestHolder;
 import com.skateboard.managerclient.network.request.OrderListRequest;
+import com.skateboard.managerclient.ui.activity.CreateOrderActivity;
 import com.skateboard.managerclient.ui.activity.OrderDetailActivity;
 
 import java.util.ArrayList;
@@ -129,11 +130,31 @@ public class OrderListFragment extends Fragment implements OnRefreshListener
         }
 
         @Override
-        public void onBindViewHolder(OrderItemHolder holder, int position)
+        public void onBindViewHolder(OrderItemHolder holder, final int position)
         {
             holder.date.setText(orders.get(position).getDATE() + "");
             holder.orderNumber.setText(orders.get(position).getORDERNUMBER() + "");
-            holder.state.setText(orders.get(position).getSTATE());
+            if ("NULL".equalsIgnoreCase(orders.get(position).getSTATE()))
+            {
+               holder.state.setText(R.string.not_create_step);
+               holder.state.setClickable(true);
+               holder.state.setOnClickListener(new View.OnClickListener()
+               {
+                   @Override
+                   public void onClick(View v)
+                   {
+                       Intent intent=new Intent(OrderListFragment.this.getActivity(), CreateOrderActivity.class);
+                       Bundle bundle=new Bundle();
+                       bundle.putString(K.ORDERNUMBER,orders.get(position).getORDERNUMBER()+"");
+                       intent.putExtras(bundle);
+                       startActivity(intent);
+                   }
+               });
+            } else
+            {
+                holder.state.setText(orders.get(position).getSTATE());
+                holder.state.setClickable(false);
+            }
             holder.itemView.setOnClickListener(new OnItemClickListener(position));
         }
 
@@ -144,20 +165,21 @@ public class OrderListFragment extends Fragment implements OnRefreshListener
         }
     }
 
+
     private class OnItemClickListener implements View.OnClickListener
     {
         int position;
 
         OnItemClickListener(int position)
         {
-            this.position=position;
+            this.position = position;
         }
 
         @Override
         public void onClick(View v)
         {
-            Intent intent=new Intent(getActivity(), OrderDetailActivity.class);
-            intent.putExtra(K.DBORDERNUMBER,orders.get(position).getORDERNUMBER());
+            Intent intent = new Intent(getActivity(), OrderDetailActivity.class);
+            intent.putExtra(K.DBORDERNUMBER, orders.get(position).getORDERNUMBER());
             startActivity(intent);
         }
     }

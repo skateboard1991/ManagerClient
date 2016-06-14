@@ -2,9 +2,11 @@
     <string name="app_name">ManagerClient</string>
 
     <string name="signin">登录</string>
+    <string name="signout">登出</string>
     <string name="username">用户名</string>
     <string name="password">密码</string>
 
+    <string name="retry">重试</string>
     <string name="confirm">确定</string>
     <string name="cancel">取消</string>
     <string name="empty_message">不能为空</string>
@@ -33,7 +35,33 @@
     <string name="create_order_success">创建订单成功</string>
     <string name="creating_order_message">创建中</string>
     <string name="create_order_failed">创建失败</string>
+    <string name="create_flow_title">创建流程</string>
+    <string name="choose_step">选择工序</string>
+    <string name="not_create_step">未创建工序,点击创建</string>
+
     
     <string name="network_error_title">无可用网络</string>
     <string name="network_error_message">请检查你的网络是否连接</string>
+    <string name="push_register_failed_tip_title">Push注册失败</string>
+    <string name="push_register_failed_tip_message">Push注册失败,请重试</string>
+    <string name="sync_success">数据同步成功</string>
+    <string name="sync_failed">订单号已经存在</string>
+
+    <string name="add_step">添加流程</string>
+
+    <string-array name="steps">
+        <item>束丝</item>
+        <item>绞线</item>
+        <item>编织</item>
+        <item>成缆</item>
+        <item>火花</item>
+        <item>包装</item>
+        <item>绝缘挤出</item>
+        <item>护套挤出</item>
+        <item>烧结</item>
+        <item>轧铅</item>
+        <item>绕包</item>
+        <item>装铠</item>
+        <item>挤塑</item>
+    </string-array>
 </resources>

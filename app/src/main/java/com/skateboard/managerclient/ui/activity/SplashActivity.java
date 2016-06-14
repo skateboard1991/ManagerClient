@@ -76,40 +76,34 @@ public class SplashActivity extends AppCompatActivity
                 @Override
                 public void run()
                 {
-                    enterNextActivity(response);
+                    enterNextActivity();
                 }
             }, 3000);
         }
     }
 
-    private void enterNextActivity(Orders response)
+    private void enterNextActivity()
     {
           if(PreferenceManager.getDefaultSharedPreferences(this).getBoolean(K.HAS_SIGNED_IN,false))
           {
-              openMainActivity(response);
+              openMainActivity();
           }
         else
           {
-              openSignInActivity(response);
+              openSignInActivity();
           }
     }
 
-    private void openMainActivity(Orders response)
+    private void openMainActivity()
     {
         Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-        Bundle bundle = new Bundle();
-        bundle.putSerializable(K.ORDER_LIST, response);
-        intent.putExtras(bundle);
         startActivity(intent);
         finish();
     }
 
-    private void openSignInActivity(Orders response)
+    private void openSignInActivity()
     {
         Intent intent = new Intent(this, LogInActivity.class);
-        Bundle bundle = new Bundle();
-        bundle.putSerializable(K.ORDER_LIST, response);
-        intent.putExtras(bundle);
         startActivity(intent);
         finish();
     }

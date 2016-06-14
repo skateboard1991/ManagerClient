@@ -27,4 +27,6 @@ dependencies {
     compile 'com.mcxiaoke.volley:library:+'
     compile 'com.github.bumptech.glide:glide:+'
     compile 'com.google.code.gson:gson:+'
+// recyclerview item animation
+    compile 'com.github.gabrielemariotti.recyclerview:recyclerview-animators:0.3.0-SNAPSHOT@aar'
 }

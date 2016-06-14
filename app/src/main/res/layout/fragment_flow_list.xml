@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <android.support.design.widget.FloatingActionButton
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="15dp"
+        android:id="@+id/sync"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:background="@color/dark_gray"
+        android:elevation="3dp"
+        android:textSize="30sp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/step_title"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:background="@color/common_gray"
+        android:elevation="2dp"
+        android:layout_below="@id/step_title"
+        android:layout_alignParentLeft="true"
+        android:layout_height="match_parent"
+        android:layout_width="130dp"
+        android:id="@+id/step_list"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_toRightOf="@id/step_list"
+        android:id="@+id/flow_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>

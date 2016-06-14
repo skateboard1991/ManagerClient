@@ -6,7 +6,7 @@ package com.skateboard.managerclient.bean;
 public class OrderState
 {
     private String DATE;
-    private String PROCESS;
+    private String STATE;
 
 
     public String getDATE()
@@ -19,13 +19,13 @@ public class OrderState
         this.DATE = DATE;
     }
 
-    public String getPROCESS()
+    public String getSTATE()
     {
-        return PROCESS;
+        return STATE;
     }
 
-    public void setPROCESS(String PROCESS)
+    public void setSTATE(String STATE)
     {
-        this.PROCESS = PROCESS;
+        this.STATE = STATE;
     }
 }

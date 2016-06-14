@@ -2,10 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.skateboard.managerclient">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.VIBRATE"/>
 
     <permission
@@ -25,9 +27,12 @@
         <activity
             android:name="com.skateboard.managerclient.ui.activity.MainActivity"
             android:launchMode="singleTask"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize">
         </activity>
-        <activity android:name="com.skateboard.managerclient.ui.activity.SplashActivity">
+        <activity
+            android:name="com.skateboard.managerclient.ui.activity.SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -36,14 +41,19 @@
         </activity>
         <activity
             android:name="com.skateboard.managerclient.ui.activity.CreateOrderActivity"
-            android:parentActivityName="com.skateboard.managerclient.ui.activity.MainActivity">
+            android:parentActivityName="com.skateboard.managerclient.ui.activity.MainActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name="com.skateboard.managerclient.ui.activity.LogInActivity"/>
-        <activity android:name="com.skateboard.managerclient.ui.activity.OrderDetailActivity"
-                  android:parentActivityName="com.skateboard.managerclient.ui.activity.MainActivity"/>
+        <activity
+            android:name="com.skateboard.managerclient.ui.activity.LogInActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.skateboard.managerclient.ui.activity.OrderDetailActivity"
+            android:parentActivityName="com.skateboard.managerclient.ui.activity.MainActivity"
+            android:screenOrientation="portrait"/>
 
 
-
+        <!--xiaomi push service-->
         <service
             android:name="com.xiaomi.push.service.XMPushService"
             android:enabled="true"
@@ -74,17 +84,17 @@
         </receiver>
 
         <receiver
-            android:exported="true"
-            android:name="com.skateboard.managerclient.xiaomi.MessageReceiver">
+            android:name="com.skateboard.managerclient.xiaomi.MessageReceiver"
+            android:exported="true">
             <!--这里com.xiaomi.mipushdemo.DemoMessageRreceiver改成app中定义的完整类名-->
             <intent-filter>
-                <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE" />
+                <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE"/>
             </intent-filter>
             <intent-filter>
-                <action android:name="com.xiaomi.mipush.MESSAGE_ARRIVED" />
+                <action android:name="com.xiaomi.mipush.MESSAGE_ARRIVED"/>
             </intent-filter>
             <intent-filter>
-                <action android:name="com.xiaomi.mipush.ERROR" />
+                <action android:name="com.xiaomi.mipush.ERROR"/>
             </intent-filter>
         </receiver>
 

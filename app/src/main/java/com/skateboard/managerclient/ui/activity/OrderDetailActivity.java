@@ -207,7 +207,7 @@ public class OrderDetailActivity extends BaseActivity
         public void onBindViewHolder(StateItemViewHolder holder, int position)
         {
             holder.date.setText(states.get(position).getDATE());
-            holder.process.setText(states.get(position).getPROCESS());
+            holder.process.setText(states.get(position).getSTATE());
         }
 
         @Override

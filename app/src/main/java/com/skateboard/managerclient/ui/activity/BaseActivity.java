@@ -8,20 +8,20 @@ import com.skateboard.managerclient.R;
 /**
  * Created by skateboard on 16-5-20.
  */
-public class BaseActivity extends AppCompatActivity
-{
-    protected Toolbar toolbar;
-
-    @Override
-    public void onContentChanged()
+    public class BaseActivity extends AppCompatActivity
     {
-        super.onContentChanged();
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        if (toolbar != null)
+        protected Toolbar toolbar;
+
+        @Override
+        public void onContentChanged()
         {
-            toolbar.setTitle("");
-            setSupportActionBar(toolbar);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            super.onContentChanged();
+            toolbar = (Toolbar) findViewById(R.id.toolbar);
+            if (toolbar != null)
+            {
+                toolbar.setTitle("");
+                setSupportActionBar(toolbar);
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            }
         }
     }
-}

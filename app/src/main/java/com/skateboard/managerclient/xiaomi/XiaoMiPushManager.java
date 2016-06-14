@@ -2,9 +2,12 @@ package com.skateboard.managerclient.xiaomi;
 
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Process;
+import android.text.TextUtils;
 
 import com.skateboard.managerclient.K;
+import com.xiaomi.mipush.sdk.ErrorCode;
 import com.xiaomi.mipush.sdk.MiPushClient;
 import com.xiaomi.mipush.sdk.MiPushCommandMessage;
 import com.xiaomi.mipush.sdk.MiPushMessage;
@@ -16,12 +19,18 @@ import java.util.List;
  */
 public class XiaoMiPushManager
 {
+
     public static void registerPush(Context context)
     {
         if (shouldInit(context))
         {
             MiPushClient.registerPush(context, K.APPID, K.APPKEY);
         }
+    }
+
+    public static void setUserAccount(Context context, String account)
+    {
+        MiPushClient.setUserAccount(context, account, null);
     }
 
     private static boolean shouldInit(Context context)
@@ -56,9 +65,55 @@ public class XiaoMiPushManager
 
     public static void onReceiveRegisterResult(Context context, MiPushCommandMessage miPushCommandMessage)
     {
+        if (miPushCommandMessage.getResultCode() == ErrorCode.SUCCESS)
+        {
+            System.out.println("registre success");
+            sendBroadCast(context, K.PUSH_REGISTER_SUCCESS);
+        } else
+        {
+            sendBroadCast(context, K.PUSH_REGISTER_FAILED);
+        }
+    }
+
+    private static void sendBroadCast(Context contexst, String action)
+    {
+        Intent intent = new Intent(action);
+        contexst.sendBroadcast(intent);
     }
 
     public static void onCommandResult(Context context, MiPushCommandMessage miPushCommandMessage)
     {
+        String command = miPushCommandMessage.getCommand();
+        List<String> commandArguments = miPushCommandMessage.getCommandArguments();
+        if (!TextUtils.isEmpty(command))
+        {
+            if ("set-account".equalsIgnoreCase(command))
+            {
+                if (miPushCommandMessage.getResultCode() == ErrorCode.SUCCESS)
+                {
+                    sendBroadCast(context, K.SET_USER_ACCOUNT_SUCCESS);
+                } else
+                {
+                    sendBroadCast(context, K.SET_USER_ACCOUNT_FAILED);
+                }
+            }
+        }
     }
+
+    public static void unsetUserAccount(Context context, String userAccount)
+    {
+        MiPushClient.unsetUserAccount(context, userAccount, null);
+    }
+
+    public static void unRegisterPush(Context context)
+    {
+        MiPushClient.unregisterPush(context);
+    }
+
+    public static void onReceiveMessage(Context context, MiPushMessage miPushMessage)
+    {
+        Intent intent = new Intent(K.ON_MESSAGE_ARRIVED);
+        context.sendBroadcast(intent);
+    }
+
 }
